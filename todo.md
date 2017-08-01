@@ -1,0 +1,1 @@
+- create buttons for actions in home#index, check for logged in before displaying

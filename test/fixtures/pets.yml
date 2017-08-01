@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  alive: false
+  date_of_death: 2017-08-01 15:38:50
+  user_id: 9.99
+
+two:
+  name: MyString
+  alive: false
+  date_of_death: 2017-08-01 15:38:50
+  user_id: 9.99
