@@ -9,6 +9,15 @@
   </head>
 
   <body>
+    <% if session[:user_id] %>
+      <ul>
+        <li>Feed</li>
+        <li>Exercise</li>
+        <li>Sleep</li>
+      </ul>
+      <%= button_to 'Logout', logout_path, method: :delete %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
