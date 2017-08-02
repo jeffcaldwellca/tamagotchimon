@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def new
+    debugger
   end
 
   def destroy
