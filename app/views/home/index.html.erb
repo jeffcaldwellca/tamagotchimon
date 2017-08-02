@@ -1,8 +1,25 @@
 
 <h1> Welcome to Tamagotchimon! </h1>
 
+  <% case @pet.state %>
+    <% when 1 %>
+      <% state = "-skinny" %>
+    <% when 2 %>
+      <% state = "" %>
+    <% when 3 %>
+      <% state = "-fat" %>
+    <% else %>
+      <% puts "error - state corruption" %>
+    <% end %>
+
     <center>
-    <%= image_tag 'pikachu.gif' %>
+      <% if @pet.sleep == 1 %>
+        <%= image_tag 'sleeping#{state}.gif' %>
+      <% elsif @pet.exercize == 1 %>
+        <%= image_tag 'workingout#{state}.gif' %>
+      <% else %>
+        <%= image_tag 'pikachu#{state}.gif' %>
+      <% end %>
     </center>
     <br>
     <%= render 'layouts/home_sidebar' %>
