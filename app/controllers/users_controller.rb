@@ -28,11 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-<<<<<<< Updated upstream
         format.html { redirect_to home_index_path, notice: 'Thanks for joining! Lets get you started with your first Tamagotchimon' }
-=======
-        format.html { redirect_to users_url, notice: 'Thanks for joining! Lets get you started with your first Tamagotchimon' }
->>>>>>> Stashed changes
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
