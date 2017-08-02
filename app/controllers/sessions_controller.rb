@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     user = User.find_by(name: params[:name])
     if user.try(:authenticate, params[:password])
       session[:user_id] = user.id
-      redirect_to home_index
+      redirect_to pets_path
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end
@@ -14,6 +14,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to home_index, notice: "Logged out"
+    redirect_to home_index_path, notice: "Logged out"
   end
 end
