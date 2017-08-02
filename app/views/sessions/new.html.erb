@@ -4,19 +4,31 @@
 
 <%= form_tag do %>
   <fieldset>
-    <legend>Please Log In</legend>
-    <div>
+    <h1>Please Log In</h1>
+    <center>
+    <div class="field">
       <%= label_tag :name, 'Name:' %>
       <%= text_field_tag :name, params[:name] %>
     </div>
-    <div>
+    <div class="field">
       <%= label_tag :password, 'Password:' %>
       <%= password_field_tag :password, params[:password] %>
     </div>
+    <br>
     <div>
-      <%= submit_tag "Login" %>
+      <button class="btn-default">
+        <%= submit_tag "Login" %>
+      </button>
     </div>
   </fieldset>
 <% end %>
-
-<%= button_to(users_url, "Register Now")
+  <center>
+    <br>
+    <button class="btn-default">
+      <%= link_to 'Back', home_index_path %>
+    </button>
+    <button class="btn-default">
+      <%= link_to 'New User', new_user_path %>
+    </button>
+  </center>
+  </center>
