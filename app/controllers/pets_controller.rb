@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :update, :destroy]
+  before_action :set_pet, only: [:show, :edit, :update, :destroy, :feed, :exercise]
   before_action :authorize
 
   # GET /pets
@@ -11,6 +11,15 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    if @pet.last_updated >= 6.hours.ago && @pet.state != 0
+      @pet.state = @pet.state - 1
+      @pet.save
+    end
+
+    if @pet.last_updated >= 3.days.ago && @pet.state == 1
+      @pet.alive = 0
+      @pet.save
+    end
   end
 
   # GET /pets/new
@@ -62,6 +71,20 @@ class PetsController < ApplicationController
     end
   end
 
+  def exercise
+    if @pet.state != 0
+      @pet.state = @pet.state - 1
+      @pet.save
+    end
+  end
+
+  def feed
+    if @pet.state != 3
+      @pet.state = @pet.state + 1
+      @pet.save
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
@@ -70,6 +93,7 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :alive, :date_of_death, :user_id)
+      params.require(:pet).permit(:name, :alive, :state, :date_of_death, :user_id)
     end
+
 end
