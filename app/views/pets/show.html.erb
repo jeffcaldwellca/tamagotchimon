@@ -4,11 +4,33 @@
   <%= render 'layouts/actions' %>
   <br>
 
+  <% case @pet.state %>
+    <% when 1 %>
+      <% state = "-skinny" %>
+    <% when 2 %>
+      <% state = "" %>
+    <% when 3 %>
+      <% state = "-fat" %>
+    <% else %>
+      <% puts "error - state corruption" %>
+    <% end %>
+
+    <center>
+      <% if @pet.sleep == 1 %>
+        <%= image_tag 'sleeping#{state}.gif' %>
+      <% elsif @pet.exercise == 1 %>
+        <%= image_tag 'workingout#{state}.gif' %>
+      <% else %>
+        <%= image_tag 'pikachu#{state}.gif' %>
+      <% end %>
+    </center>
+
+
   <p>Placeholder image</p>
   <div>
   <%= image_tag 'pikachu.gif' %>
   </div>
-  
+
   <br>
 
   <table>

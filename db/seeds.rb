@@ -11,5 +11,15 @@ Pet.create!(
   name: 'Pikachu',
   alive: true,
   user_id: 1,
-  date_of_death: Time.now
+  sleep: 0,
+  state: 2,
+  date_of_death: nil
+)
+
+User.delete_all
+
+User.create!(
+  name: 'jeff',
+  password: 'secret',
+  password_confirmation: 'secret'
 )
