@@ -1,0 +1,23 @@
+
+<% case character.state %>
+  <% when 1 %>
+    <% state = "-skinny" %>
+  <% when 2 %>
+    <% state = "" %>
+  <% when 3 %>
+    <% state = "-fat" %>
+  <% else %>
+    <% puts "error - state corruption" %>
+  <% end %>
+
+  <center style="margin-top: 15px">
+    <% if character.sleep == 1 %>
+      <%= image_tag 'sleeping#{state}.gif' %>
+    <% elsif character.exercise == 1 %>
+      <%= image_tag 'workingout#{state}.gif' %>
+    <% elsif character.alive == false %>
+      <%= image_tag 'duskull' %>
+    <% else %>
+      <%= image_tag 'pikachu#{state}.gif' %>
+    <% end %>
+  </center>

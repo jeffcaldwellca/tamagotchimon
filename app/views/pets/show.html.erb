@@ -20,6 +20,8 @@
         <%= image_tag 'sleeping#{state}.gif' %>
       <% elsif @pet.exercise == 1 %>
         <%= image_tag 'workingout#{state}.gif' %>
+      <% elsif @pet.alive == false %>
+        <%= image_tag 'duskull' %>
       <% else %>
         <%= image_tag 'pikachu#{state}.gif' %>
       <% end %>
