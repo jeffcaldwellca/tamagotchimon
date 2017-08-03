@@ -3198,6 +3198,14 @@
    border-radius: 10px;
    padding: 6px;
  }
+ .btn-round-1-white {
+   color: #000000;
+   background-color: #ffffff;
+   border-color: #cccccc;
+   border: 2px solid;
+   border-radius: 10px;
+   padding: 2px;
+ }
  .btn-round-2 {
    color: #000000;
    background-color: #008cba;
@@ -3206,6 +3214,14 @@
    border-radius: 10px;
    padding: 6px;
  }
+ .btn-round-2-white {
+   color: #000000;
+   background-color: #ffffff;
+   border-color: #cccccc;
+   border: 2px solid;
+   border-radius: 10px;
+   padding: 2px;
+ }
  .btn-round-3 {
    color: #000000;
    background-color: #FFA500;
@@ -3213,6 +3229,14 @@
    border: 2px solid;
    border-radius: 10px;
    padding: 6px;
+ }
+ .btn-round-3-white {
+   color: #000000;
+   background-color: #ffffff;
+   border-color: #cccccc;
+   border: 2px solid;
+   border-radius: 10px;
+   padding: 2px;
  }
  .btn-success {
    color: #ffffff;

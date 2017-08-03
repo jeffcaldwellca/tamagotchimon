@@ -2,17 +2,29 @@
   <% if session[:user_id] %>
     <div class="panel panel-primary">
       <div class="panel-heading">
-        <h3 class="panel-title">What will Pikachu do?</h3>
+        <% @pets.each do |pet| %>
+        <h3 class="panel-title">What will <%= pet.name %> do?</h3>
+        <% end %>
       </div>
       <div class="panel-body">
-      <button class="btn-round-1">Feed</button>
 
+        <button class="btn-round-1-white">
+      <%= button_to 'Feed', feed_path(@pet), class: 'btn-round-1' %>
+        </button>
 
-      <button class="btn-round-2">Exercise</button>
+        <button class="btn-round-2-white">
+      <%= button_to 'Exercise', exercise_path(@pet), class: 'btn-round-2' %>
+        </button>
+
       </div>
+
       <div class="panel-body">
-      <button class="btn-round-3">Sleep</button>
+        <button class="btn-round-3-white">
+          <!--needs updated path -->
+      <%= button_to 'Sleep', feed_path(@pet), class: 'btn-round-3' %>
+        </button>
       </div>
+
   </div>
 
     <%= button_to 'Logout', logout_path, method: :delete, class: 'btn-default', style: 'margin-left: 20px' %>
