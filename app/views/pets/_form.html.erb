@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :alive %>
-    <%= f.check_box :alive %>
+    <%= f.label :alive, style: 'display:none' %>
+    <%= f.check_box :alive, style:'display:none' %>
   </div>
 
   <div class="field">
@@ -27,8 +27,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
+    <%= f.label :user_id, style: 'display:none'%>
+    <%= f.text_field :user_id, :value => session[:user_id],
+    style: 'display:none' %>
   </div>
 
   <div class="actions">
