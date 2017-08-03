@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802201442) do
+ActiveRecord::Schema.define(version: 20170803172530) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "alive"
+    t.boolean  "alive",         default: true
     t.datetime "date_of_death"
     t.decimal  "user_id"
     t.datetime "created_at",                    null: false
