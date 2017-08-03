@@ -1,0 +1,15 @@
+<h2>Current Status</h2>
+
+% if @pet.state == 1 %>
+  <p class="btn-round-1">SKINNY</p>
+<% elsif @pet.state == 2 %>
+  <p class="btn-round-1">NORMAL</p>
+<% elsif @pet.state == 3 %>
+  <p class="btn-round-1">FAT</p>
+<% else %>
+  <p class="btn-round-1">ERROR</p>
+<% end %>
+
+<% if @pet.sleep == 1 %>
+  <p class="btn-round-3">SLEEPING</p>
+<% end %>
