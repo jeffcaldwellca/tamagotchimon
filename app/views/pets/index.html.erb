@@ -2,11 +2,9 @@
 
 <h1>Pets</h1>
 <center>
-  <p>Placeholder image</p>
-  <div>
-  <%= image_tag 'pikachu.gif' %>
   </div>
       <% @pets.each do |pet| %>
+      <%= render 'layouts/pet_state', character: pet %>
       <table>
         <tr class="list-group">
         <th class="list-group-item">Name:
