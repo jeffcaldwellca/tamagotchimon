@@ -12,15 +12,15 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
-    if @pet.updated_at >= 6.hours.ago && @pet.state.to_i != 0
-      @pet.state = @pet.state.to_i - 1
-      if @pet.exercise.to_i == 1
+    if @pet.updated_at <= 6.hours.ago && @pet.state != 0
+      @pet.state = @pet.state - 1
+      if @pet.exercise == 1
         @pet.exercise = 0
       end
       @pet.save
     end
 
-    if @pet.updated_at >= 3.days.ago && @pet.state.to_i == 1
+    if @pet.updated_at <= 3.days.ago && @pet.state == 1
       @pet.alive = 0
       @pet.save
     end
@@ -76,8 +76,8 @@ class PetsController < ApplicationController
   end
 
   def exercise
-    if @pet.state.to_i != 0
-      @pet.state = @pet.state.to_i - 1
+    if @pet.state != 0
+      @pet.state = @pet.state - 1
       @pet.exercise = 1
       @pet.save
     end
@@ -85,18 +85,18 @@ class PetsController < ApplicationController
   end
 
   def feed
-    if @pet.state.to_i != 3
-      @pet.state = @pet.state.to_i + 1
+    if @pet.state != 3
+      @pet.state = @pet.state + 1
       @pet.save
     end
     redirect_to @pet
   end
 
   def sleep
-    if @pet.sleep.to_i == 1
-      @pet.sleep.to_i == 0
+    if @pet.sleep == 1
+      @pet.sleep = 0
     else
-      @pet.sleep.to_i == 1
+      @pet.sleep = 1
     end
     @pet.save
     redirect_to @pet

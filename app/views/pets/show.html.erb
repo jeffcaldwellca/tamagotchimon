@@ -17,16 +17,16 @@
 
     <center>
       <% if @pet.sleep == 1 %>
-        <%= image_tag 'sleeping#{state}.gif' %>
+        <%= image_tag "sleeping#{state}.gif" %>
         <span class="label label-warning">Sleeping</span>
       <% elsif @pet.exercise == 1 %>
-        <%= image_tag 'workingout#{state}.gif' %>
+        <%= image_tag "workingout#{state}.gif" %>
         <span class="label label-info">Exercising</span>
       <% elsif @pet.alive == false %>
         <%= image_tag 'duskull' %>
         <span class="label label-danger">Dead</span>
       <% else %>
-        <%= image_tag 'pikachu#{state}.gif' %>
+        <%= image_tag "pikachu#{state}.gif" %>
         <span class="label label-success">Normal</span>
       <% end %>
     </center>
