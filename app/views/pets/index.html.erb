@@ -6,11 +6,9 @@
   <div>
   <%= image_tag 'pikachu.gif' %>
   </div>
-  <br>
-<table>
-  <tbody>
-    <% @pets.each do |pet| %>
-      <tr class="list-group">
+      <% @pets.each do |pet| %>
+      <table>
+        <tr class="list-group">
         <th class="list-group-item">Name:
           <%= pet.name %></td>
         <th class="list-group-item"> Is Alive:
@@ -19,21 +17,20 @@
           <%= pet.date_of_death %></th>
         <th class="list-group-item"> User:
           <%= pet.user_id %></th>
-      </tr>
-      <button class="btn-default">
-        <%= link_to 'Show', pet %>
-      </button>
-      <button class="btn-default">
-        <%= link_to 'Edit', edit_pet_path(pet) %>
-      </button>
-      <button class="btn-default">
-        <%= link_to 'Destroy', pet, method: :delete,
-        data: { confirm: 'Are you sure?' } %>
-      </button>
-    <% end %>
-  </tbody>
-</table>
-
+        </tr>
+      </table>
+<button class="btn-default">
+  <%= link_to 'Show', pet %>
+</button>
+<button class="btn-default">
+  <%= link_to 'Edit', edit_pet_path(pet) %>
+</button>
+<button class="btn-default">
+  <%= link_to 'Destroy', pet, method: :delete,
+  data: { confirm: 'Are you sure?' } %>
+</button>
+<br>
+<% end %>
 <%= yield %>
 
 <br>
