@@ -7,11 +7,11 @@
       <div class="panel-body">
 
         <button class="btn-round-1-white">
-      <%= button_to 'Feed', feed_path(@pet), class: 'btn-round-1' %>
+      <%= button_to 'Feed', feed_path, class: 'btn-round-1', params: {id: @pet.id } %>
         </button>
 
         <button class="btn-round-2-white">
-      <%= button_to 'Exercise', exercise_path(@pet), class: 'btn-round-2' %>
+      <%= button_to 'Exercise', exercise_path, class: 'btn-round-2', params: {id: @pet.id } %>
         </button>
 
       </div>
@@ -19,7 +19,7 @@
       <div class="panel-body">
         <button class="btn-round-3-white">
           <!--needs updated path -->
-      <%= button_to 'Sleep', feed_path(@pet), class: 'btn-round-3' %>
+      <%= button_to 'Sleep', sleep_path, class: 'btn-round-3', params: {id: @pet.id } %>
         </button>
       </div>
 

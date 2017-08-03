@@ -20,13 +20,13 @@
         </tr>
       </table>
 <button class="btn-default">
-  <%= link_to 'Show', pet %>
+  <%= link_to 'View Pet', pet %>
 </button>
 <button class="btn-default">
-  <%= link_to 'Edit', edit_pet_path(pet) %>
+  <%= link_to 'Edit Name', edit_pet_path(pet) %>
 </button>
 <button class="btn-default">
-  <%= link_to 'Destroy', pet, method: :delete,
+  <%= link_to 'Delete Pet', pet, method: :delete,
   data: { confirm: 'Are you sure?' } %>
 </button>
 <br>

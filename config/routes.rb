@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
   controller :pets do
     resources :pets
-    get 'feed' => :feed
-    get 'exercise' => :exercise
+    post 'feed' => :feed
+    post 'exercise' => :exercise
+    post 'sleep' => :sleep
   end
 
   root 'home#index', as: 'home_index'

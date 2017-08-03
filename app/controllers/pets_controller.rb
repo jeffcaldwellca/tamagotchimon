@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :update, :destroy, :feed, :exercise]
+  before_action :set_pet, only: [:show, :edit, :update, :destroy, :feed, :exercise, :sleep]
   before_action :authorize
 
   # GET /pets
@@ -12,12 +12,15 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
-    if @pet.updated_at >= 6.hours.ago && @pet.state != 0
-      @pet.state = @pet.state - 1
+    if @pet.updated_at >= 6.hours.ago && @pet.state.to_i != 0
+      @pet.state = @pet.state.to_i - 1
+      if @pet.exercise.to_i == 1
+        @pet.exercise = 0
+      end
       @pet.save
     end
 
-    if @pet.updated_at >= 3.days.ago && @pet.state == 1
+    if @pet.updated_at >= 3.days.ago && @pet.state.to_i == 1
       @pet.alive = 0
       @pet.save
     end
@@ -73,25 +76,30 @@ class PetsController < ApplicationController
   end
 
   def exercise
-    if @pet.state != 0
-      @pet.state = @pet.state - 1
+    if @pet.state.to_i != 0
+      @pet.state = @pet.state.to_i - 1
+      @pet.exercise = 1
       @pet.save
     end
+    redirect_to @pet
   end
 
   def feed
-    if @pet.state != 3
-      @pet.state = @pet.state + 1
+    if @pet.state.to_i != 3
+      @pet.state = @pet.state.to_i + 1
       @pet.save
     end
+    redirect_to @pet
   end
 
   def sleep
-    if @pet.sleep == 1
-      @pet.sleep == 0
+    if @pet.sleep.to_i == 1
+      @pet.sleep.to_i == 0
     else
-      @pet.sleep == 1
+      @pet.sleep.to_i == 1
     end
+    @pet.save
+    redirect_to @pet
   end
 
   private
@@ -102,7 +110,7 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:name, :alive, :state, :date_of_death, :user_id)
+      params.require(:pet).permit(:name, :state, :date_of_death, :user_id)
     end
 
 end
