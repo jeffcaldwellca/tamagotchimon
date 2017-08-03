@@ -1,28 +1,36 @@
 <p id="notice"><%= notice %></p>
+<h1> <%= @pet.name %> </h1>
+<center>
+  <%= render 'layouts/actions' %>
+  <br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @pet.name %>
-</p>
+  <p>Placeholder image</p>
+  <div>
+  <%= image_tag 'pikachu.gif' %>
+  </div>
+  
+  <br>
 
-<p>
-  <strong>Alive:</strong>
-  <%= @pet.alive %>
-</p>
+  <table>
+    <tr class="list-group">
+      <th class="list-group-item">Name:
+        <%= @pet.name %></td>
+      <th class="list-group-item"> Is Alive:
+        <%= @pet.alive %></th>
+      <th class="list-group-item"> Date of Death:
+        <%= @pet.date_of_death %></th>
+      <th class="list-group-item"> User:
+        <%= @pet.user_id %></th>
+      </tr>
+  </table>
 
-<p>
-  <strong>Date of death:</strong>
-  <%= @pet.date_of_death %>
-</p>
+  <br>
 
-<p>
-  <strong>User:</strong>
-  <%= @pet.user_id %>
-</p>
+    <button class="btn-default">
+      <%= link_to 'Back', pets_path %>
+    </button> |
 
-<%= link_to 'Edit', edit_pet_path(@pet) %> |
-<%= link_to 'Back', pets_path %>
-
-
-<%= button_to 'Feed', feed_path(@pet) %>
-<%= button_to 'Exercise', exercise_path(@pet) %>
+    <button class="btn-default">
+      <%= link_to 'Edit', edit_pet_path(@pet) %>
+    </button>
+</center>
