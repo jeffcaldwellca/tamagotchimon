@@ -25,12 +25,6 @@
       <% end %>
     </center>
 
-
-  <p>Placeholder image</p>
-  <div>
-  <%= image_tag 'pikachu.gif' %>
-  </div>
-
   <br>
 
   <table>
@@ -39,10 +33,12 @@
         <%= @pet.name %></td>
       <th class="list-group-item"> Is Alive:
         <%= @pet.alive %></th>
+        <% if @pet.alive == false %>
       <th class="list-group-item"> Date of Death:
         <%= @pet.date_of_death %></th>
+        <% end %>
       <th class="list-group-item"> User:
-        <%= @pet.user_id %></th>
+        <%= @pet.user.name %></th>
       </tr>
   </table>
 
