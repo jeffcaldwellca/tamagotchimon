@@ -46,15 +46,13 @@
   <table>
     <tr class="list-group">
       <th class="list-group-item">Name:
-        <%= @pet.name %></td>
-      <th class="list-group-item"> Is Alive:
-        <%= @pet.alive %></th>
+        <%= @pet.name %></th>
+
         <% if @pet.alive == false %>
       <th class="list-group-item"> Date of Death:
         <%= @pet.date_of_death %></th>
         <% end %>
-      <th class="list-group-item"> User:
-        <%= @pet.user.name %></th>
+
       </tr>
   </table>
 

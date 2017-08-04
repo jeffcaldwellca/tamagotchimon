@@ -6,16 +6,17 @@
       <%= render 'layouts/pet_state', character: pet %>
       <table>
         <tr class="list-group">
-        <th class="list-group-item">Name:
-          <%= pet.name %></td>
-        <th class="list-group-item"> Is Alive:
-          <%= pet.alive %></th>
-          <% if pet.alive == false %>
-        <th class="list-group-item"> Date of Death:
-          <%= pet.date_of_death %></th>
+        <th class="list-group-item">
+          Name: <%= pet.name %>
+          <% if pet.alive == true %>
+            <span class="label label-default-2">Alive</span>
+          <% else %>
+            <span class="label label-default-1">Dead</span>
           <% end %>
-        <th class="list-group-item"> User:
-          <%= pet.user.name %></th>
+        </th>
+          <% if pet.alive == false %>
+            <th class="list-group-item"> Date of Death: <%= pet.date_of_death %></th>
+          <% end %>
         </tr>
       </table>
 <button class="btn-default">
