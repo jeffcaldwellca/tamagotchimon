@@ -25,6 +25,8 @@
       <% elsif @pet.alive == false %>
         <%= image_tag 'duskull' %>
         <span class="label label-danger">Dead</span>
+      <% elsif Time.now >= Time.parse("9:00 pm") %>
+        <%= image_tag "tired#{state}.gif" %>
       <% else %>
         <%= image_tag "pikachu#{state}.gif" %>
         <span class="label label-success">Normal</span>

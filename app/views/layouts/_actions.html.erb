@@ -18,8 +18,11 @@
 
       <div class="panel-body">
         <button class="btn-round-3-white">
-          <!--needs updated path -->
-      <%= button_to 'Sleep', sleep_path, class: 'btn-round-3', params: {id: @pet.id } %>
+          <% if(@pet.sleep == 1) %>
+            <%= button_to 'Wake', sleep_path, class: 'btn-round-3', params: {id: @pet.id } %>
+          <% else %>
+            <%= button_to 'Sleep', sleep_path, class: 'btn-round-3', params: {id: @pet.id } %>
+          <% end %>
         </button>
       </div>
 
