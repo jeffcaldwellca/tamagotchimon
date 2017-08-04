@@ -79,6 +79,7 @@ class PetsController < ApplicationController
     if @pet.state != 0
       @pet.state = @pet.state - 1
       @pet.exercise = 1
+      @pet.sleep = 0
       @pet.save
     end
     redirect_to @pet
@@ -87,6 +88,8 @@ class PetsController < ApplicationController
   def feed
     if @pet.state != 3
       @pet.state = @pet.state + 1
+      @pet.exercise = 0
+      @pet.sleep = 0
       @pet.save
     end
     redirect_to @pet
@@ -98,6 +101,7 @@ class PetsController < ApplicationController
     else
       @pet.sleep = 1
     end
+    @pet.exercise = 0
     @pet.save
     redirect_to @pet
   end
