@@ -30,11 +30,13 @@
               <%= button_to 'Sleep', sleep_path, class: 'btn-round-3', params: {id: @pet.id } %>
             <% end %>
           </button>
-          <button class="btn-round-3-white">
             <% if @pet.alive == true %>
+            <% if @pet.evolve == false %>
+            <button class="btn-round-3-white">
               <%= button_to 'Evolve!', evolve_path, class:'btn-round-4', params: {id: @pet.id} %>
+            </button>
               <% end %>
-          </button>
+              <% end %>
         <% end %>
       </div>
 

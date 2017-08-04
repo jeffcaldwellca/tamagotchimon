@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803213114) do
+ActiveRecord::Schema.define(version: 20170804152251) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name"
     t.boolean  "alive",         default: true
     t.datetime "date_of_death"
     t.integer  "user_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "state",         default: 2
     t.integer  "sleep",         default: 0
     t.integer  "exercise",      default: 0
+    t.boolean  "evolve",        default: false
   end
 
   create_table "users", force: :cascade do |t|
