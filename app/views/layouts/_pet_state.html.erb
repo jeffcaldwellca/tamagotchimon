@@ -12,12 +12,27 @@
 
   <center style="margin-top: 15px">
     <% if character.sleep == 1 %>
-      <%= image_tag "sleeping#{state}.gif" %>
+      <% if character.evolve == false %>
+        <%= image_tag "sleeping#{state}.gif" %>
+      <% else %>
+        <%= image_tag "r-sleeping#{state}.gif" %>
+      <% end %>
+
     <% elsif character.exercise == 1 %>
-      <%= image_tag "workingout#{state}.gif" %>
+      <% if character.evolve == false %>
+        <%= image_tag "workingout#{state}.gif" %>
+      <% else %>
+        <%= image_tag "r-workingout#{state}.gif" %>
+      <% end %>
+
     <% elsif character.alive == false %>
       <%= image_tag "duskull" %>
+
     <% else %>
-      <%= image_tag "pikachu#{state}.gif" %>
+      <% if character.evolve == false %>
+        <%= image_tag "pikachu#{state}.gif" %>
+      <% else %>
+        <%= image_tag "raichu#{state}.gif" %>
+      <% end %>
     <% end %>
   </center>
