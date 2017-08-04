@@ -12,6 +12,11 @@ class PetsController < ApplicationController
   # GET /pets/1
   # GET /pets/1.json
   def show
+    if @pet.updated_at <= 5.mins.ago && @pet.exercise == 1
+      @pet.exercise = 0
+      @pet.save
+    end
+
     if @pet.updated_at <= 6.hours.ago && @pet.state != 0
       @pet.state = @pet.state - 1
       if @pet.exercise == 1
