@@ -30,7 +30,7 @@ class PetsController < ApplicationController
       @pet.save
     end
 
-    if @pet.created_at > 7.days.ago && @pet.alive == true
+    if @pet.created_at < 7.days.ago && @pet.alive == true
       @pet.evolve = true
       @pet.save
     end
