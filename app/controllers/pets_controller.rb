@@ -29,6 +29,11 @@ class PetsController < ApplicationController
       @pet.alive = 0
       @pet.save
     end
+
+    if @pet.created_at > 7.days.ago && @pet.alive == true
+      @pet.evolve = true
+      @pet.save
+    end
   end
 
   # GET /pets/new
@@ -109,6 +114,13 @@ class PetsController < ApplicationController
     @pet.exercise = 0
     @pet.save
     redirect_to @pet
+  end
+
+  def evolve
+    if @pet.state == 3 && @pet.evolve != true && @pet.updated_at < 10.minutes.ago
+      @pet.evolve = true
+      @pet.save
+    end
   end
 
   private

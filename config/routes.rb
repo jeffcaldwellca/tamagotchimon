@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     post 'feed' => :feed
     post 'exercise' => :exercise
     post 'sleep' => :sleep
+    post 'evolve' => :evolve
   end
 
   root 'home#index', as: 'home_index'
