@@ -117,7 +117,7 @@ class PetsController < ApplicationController
   end
 
   def evolve
-    if @pet.state == 3 && @pet.evolve != true && @pet.updated_at < 10.minutes.ago
+    if @pet.evolve != true 
       @pet.evolve = true
       @pet.save
     end
