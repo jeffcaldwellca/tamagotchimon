@@ -117,11 +117,11 @@ class PetsController < ApplicationController
   end
 
   def evolve
-    debugger
     if @pet.state == 3 && @pet.evolve != true && @pet.updated_at < 10.minutes.ago
       @pet.evolve = true
       @pet.save
     end
+    redirect_to @pet
   end
 
   private
