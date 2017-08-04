@@ -3240,6 +3240,22 @@
    border-radius: 10px;
    padding: 2px;
  }
+ .btn-round-4 {
+   color: #000000;
+   background-color: #4bd614;
+   border-color: #0079a1;
+   border: 2px solid;
+   border-radius: 10px;
+   padding: 6px;
+ }
+ .btn-round-4-white {
+   color: #000000;
+   background-color: #ffffff;
+   border-color: #0079a1;
+   border: 2px solid;
+   border-radius: 10px;
+   padding: 2px;
+ }
  .btn-success {
    color: #ffffff;
    background-color: #43ac6a;

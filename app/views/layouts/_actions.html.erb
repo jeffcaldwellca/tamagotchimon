@@ -2,7 +2,11 @@
   <% if session[:user_id] %>
     <div class="panel panel-primary">
       <div class="panel-heading">
+        <% if @pet.alive != true %>
+        <h3 class="panel-title"><%= @pet.name %> Is Dead </h3>
+        <% else %>
         <h3 class="panel-title">What will <%= @pet.name %> do?</h3>
+        <% end %>
       </div>
       <div class="panel-body">
         <% if @pet.alive == true %>
@@ -26,8 +30,14 @@
               <%= button_to 'Sleep', sleep_path, class: 'btn-round-3', params: {id: @pet.id } %>
             <% end %>
           </button>
+          <button class="btn-round-3-white">
+            <% if @pet.alive == true %>
+              <%= button_to 'Evolve!', evolve_path, class:'btn-round-4', params: {id: @pet.id} %>
+              <% end %>
+          </button>
         <% end %>
       </div>
+
 
   </div>
 
