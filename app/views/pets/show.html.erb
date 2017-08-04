@@ -16,6 +16,14 @@
     <% end %>
 
     <center>
+      <% if @pet.state == 1 %>
+        <span class="label label-default-1">Hungry</span>
+      <% elsif @pet.state == 2 %>
+        <span class="label label-default-2">Average</span>
+      <% elsif @pet.state ==3 %>
+        <span class="label label-default-3">Full</span>
+      <% end %>
+
       <% if @pet.sleep == 1 %>
         <%= image_tag "sleeping#{state}.gif" %>
         <span class="label label-warning">Sleeping</span>
@@ -27,7 +35,7 @@
         <span class="label label-danger">Dead</span>
       <% else %>
         <%= image_tag "pikachu#{state}.gif" %>
-        <span class="label label-success">Normal</span>
+        <span class="label label-success">Idle</span>
       <% end %>
     </center>
 
@@ -50,11 +58,11 @@
 
   <br>
 
-    <button class="btn-default">
+    <button class="btn-default" style="margin-bottom: 20px">
       <%= link_to 'Back', pets_path %>
     </button> |
 
-    <button class="btn-default">
+    <button class="btn-default" style="margin-bottom: 20px">
       <%= link_to 'Edit', edit_pet_path(@pet) %>
     </button>
 </center>

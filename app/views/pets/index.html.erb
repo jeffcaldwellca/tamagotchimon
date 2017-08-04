@@ -2,7 +2,6 @@
 
 <h1>Pets</h1>
 <center>
-  </div>
       <% @pets.each do |pet| %>
       <%= render 'layouts/pet_state', character: pet %>
       <table>
@@ -34,10 +33,10 @@
 <%= yield %>
 
 <br>
-<button class="btn-default">
+<button class="btn-default" style="margin-bottom: 20px">
   <%= link_to 'Back', home_index_path %>
 </button>
-<button class="btn-info">
+<button class="btn-info" style="margin-bottom: 20px">
 <%= link_to 'New Pet', new_pet_path %>
 </button>
 </center>

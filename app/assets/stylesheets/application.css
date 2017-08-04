@@ -7092,9 +7092,17 @@
    border-radius: 0;
    font-weight: 300;
  }
- .label-default {
-   background-color: #e7e7e7;
-   color: #333333;
+ .label-default-1 {
+   background-color: #ab4f4f;
+   color: #ffffff;
+ }
+ .label-default-2 {
+   background-color: #4daf99;
+   color: #ffffff;
+ }
+ .label-default-3 {
+   background-color: #7252bb;
+   color: #ffffff;
  }
  .badge {
    font-weight: 300;
