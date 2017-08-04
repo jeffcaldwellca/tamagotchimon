@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :set_pet, only: [:show, :edit, :update, :destroy, :feed, :exercise, :sleep]
+  before_action :set_pet, only: [:show, :edit, :update, :destroy, :feed, :exercise, :sleep, :evolve]
   before_action :authorize
 
   # GET /pets
@@ -117,6 +117,7 @@ class PetsController < ApplicationController
   end
 
   def evolve
+    debugger
     if @pet.state == 3 && @pet.evolve != true && @pet.updated_at < 10.minutes.ago
       @pet.evolve = true
       @pet.save

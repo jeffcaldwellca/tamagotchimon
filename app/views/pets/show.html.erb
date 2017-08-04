@@ -25,19 +25,40 @@
       <% end %>
 
       <% if @pet.sleep == 1 %>
-        <%= image_tag "sleeping#{state}.gif" %>
+        <% if @pet.evolve == false %>
+          <%= image_tag "sleeping#{state}.gif" %>
+        <% else %>
+          <%= image_tag "r-sleeping#{state}.gif" %>
+        <% end %>
         <span class="label label-warning">Sleeping</span>
+
       <% elsif @pet.exercise == 1 %>
-        <%= image_tag "workingout#{state}.gif" %>
+        <%if @pet.evolve == false %>
+          <%= image_tag "workingout#{state}.gif" %>
+        <% else %>
+          <%= image_tag "r-workingout#{state}.gif" %>
+          <% end %>
         <span class="label label-info">Exercising</span>
-      <% elsif @pet.alive == false %>
-        <%= image_tag "duskull" %>
-        <span class="label label-danger">Dead</span>
+
       <% elsif Time.now >= Time.parse("9:00 pm") %>
-        <%= image_tag "tired#{state}.gif" %>
+        <% if @pet.evolve == false %>
+          <%= image_tag "tired#{state}.gif" %>
+        <% else %>
+          <%= image_tag "r-tired#{state}.gif" %>
+        <% end %>
+
+      <% elsif @pet.alive == false %>
+          <%= image_tag "duskull" %>
+        <span class="label label-danger">Dead</span>
+
       <% else %>
-        <%= image_tag "pikachu#{state}.gif" %>
+        <%if @pet.evolve == false %>
+          <%= image_tag "pikachu#{state}.gif" %>
+        <% else %>
+          <%= image_tag "raichu#{state}.gif" %>
+        <% end %>
         <span class="label label-success">Idle</span>
+
       <% end %>
     </center>
 
